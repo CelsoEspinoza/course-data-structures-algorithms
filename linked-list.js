@@ -78,8 +78,8 @@ class LinkedList {
             return this;
         }
         const beforeIndexNode = this.traverseToIndex(index - 1);
-        const afterIndexNode = this.traverseToIndex(index + 1);
-        beforeIndexNode.next = afterIndexNode;
+        const unwantedNode = beforeIndexNode.next;
+        beforeIndexNode.next = unwantedNode?.next;
         if (index === this.length - 1) {
             this.tail = beforeIndexNode;
         }
