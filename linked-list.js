@@ -87,6 +87,31 @@ class LinkedList {
         
         return this;
     }
+
+    reverse() {
+        if (this.length === 1) {
+            return this;
+        }
+
+        let counter = 0;
+        let previousNode = null;
+        let currentNode = this.head;
+        while (counter !== this.length) {
+            previousNode = currentNode;
+            currentNode = currentNode.next;
+
+            if (currentNode) {
+                currentNode.prev = previousNode;
+            }
+            previousNode.next = previousNode.prev;
+            delete previousNode.prev;
+
+            counter++;
+        }
+        this.tail = this.head;
+        this.head = previousNode;
+        return this
+    }
 }
 
 const myLinkedList = new LinkedList(10);
@@ -100,4 +125,6 @@ myLinkedList.remove(myLinkedList.length - 1);
 // 1 -> 10 --> 20 -> 5 --> 6
 myLinkedList.remove(2);
 // 1 -> 10 --> 5 --> 6
+myLinkedList.reverse();
+// 6 --> 5 --> 10 --> 1
 console.log(JSON.stringify(myLinkedList));
