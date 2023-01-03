@@ -21,20 +21,20 @@ class Queue {
         if (this.length === 0) {
             this.first = newNode;
             this.last = newNode;
-            this.length++;
-            return this;
+        } else {
+            this.last.next = newNode;
+            this.last = newNode;
         }
-        this.last.next = newNode;
-        this.last = newNode;
         this.length++;
+        return this;
     }
 
     dequeue() {
+        if (this.length === 0) {
+            return null;
+        }
         if (this.length === 1) {
-            this.first = null;
             this.last = null;
-            this.length = 0;
-            return this;
         }
         this.first = this.first.next;
         this.length--;
