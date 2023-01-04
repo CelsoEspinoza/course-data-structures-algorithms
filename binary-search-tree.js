@@ -20,7 +20,9 @@ class BinarySearchTree {
         }
 
         const { parentNode, sideChosen } = this.findParentNode(value);
-        parentNode[sideChosen] = newNode;
+        if (parentNode[sideChosen]?.value !== newNode.value) {
+            parentNode[sideChosen] = newNode;
+        }
         return this;
     }
 
@@ -56,6 +58,7 @@ class BinarySearchTree {
 const myBinarySearchtree = new BinarySearchTree();
 myBinarySearchtree.insert(27);
 myBinarySearchtree.insert(14);
+myBinarySearchtree.insert(52);
 myBinarySearchtree.insert(52);
 myBinarySearchtree.insert(5);
 myBinarySearchtree.insert(59);
