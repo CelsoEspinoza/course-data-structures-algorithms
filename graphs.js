@@ -6,9 +6,10 @@ class Graph {
 
     addVertex(node) {
         const connections = this.adjacentList[node];
-        if (!connections) {
-            this.adjacentList[node] = [];
+        if (connections) {
+            return this;
         }
+        this.adjacentList[node] = [];
         this.numberOfNodes++
         return this;
     }
@@ -17,8 +18,8 @@ class Graph {
         if (!node1 || !node2)  {
             return 'Error';
         }
-        this.adjacentList[node1] = [ ...this.adjacentList[node1], node2 ];
-        this.adjacentList[node2] = [ ...this.adjacentList[node2], node1 ];
+        this.adjacentList[node1].push(node2);
+        this.adjacentList[node2].push(node1);
         return this;
     }
 
@@ -32,7 +33,7 @@ class Graph {
           for (vertex of nodeConnections) {
             connections += vertex + " ";
           } 
-          console.log(node + "-->" + connections); 
+          console.log(node + "--> " + connections); 
         } 
     }
 }
