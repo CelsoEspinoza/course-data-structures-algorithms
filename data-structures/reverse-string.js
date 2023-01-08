@@ -20,7 +20,15 @@ function reverse2(str) {
 
 const reverse3 = str => [...str].reverse().join('');
 
-// const myString = 'Hola, mi nombre es Celso';
-const myString = 12312;
+function reverseRecursive(str) {
+    const strLength = str.length;
+    if (strLength === 1) {
+        return str;
+    }
+    return `${reverseRecursive(str.substring(1))}${str[0]}`;
+}
 
+const myString = 'Hola, mi nombre es Celso';
+
+console.log(reverseRecursive(myString));
 console.log(reverse(myString));
