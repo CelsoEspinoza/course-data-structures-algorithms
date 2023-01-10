@@ -13,13 +13,12 @@ function selectionSort(values) {
             value: values[i],
             index: i,
         };
-        for (let j = i; j < values.length; j++) {
+        for (let j = i+1; j < values.length; j++) {
             if (values[j] < lowestItem.value) {
                 lowestItem.value = values[j];
                 lowestItem.index = j;
             }
         }
-        console.log(lowestItem);
         values[lowestItem.index] = values[i];
         values[i] = lowestItem.value;
     }
