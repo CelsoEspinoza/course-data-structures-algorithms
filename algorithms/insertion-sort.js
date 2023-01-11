@@ -1,5 +1,7 @@
 // [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0]
 
+// Use it when you have a nearly sorted data or small set of it.
+// It goes very fast comparing to others algorithms
 function insertionSort(values) {
     if (!values || !Array.isArray(values)) {
         return 'Error';
