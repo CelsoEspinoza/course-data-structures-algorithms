@@ -1,6 +1,11 @@
 // [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0]
 // [1, 2, 4, 5, 6, 44, 63, 87, 99, 283]
 
+// Divede and conquer. 
+// Time complexity: Best => O(nlog(n)) | Average => O(nlog(n)) | Worst => O(nlog(n)) 
+// Space complexity: Worst => O(n)
+// If worry for worst case scenarios, use it.
+// If sorting in memory, this is really expensive.
 function mergeSort(array) {
     if (!array || !Array.isArray(array)) {
         return 'Error';
@@ -32,9 +37,11 @@ function merge(left, right) {
     const mergedArray = [];
     while (i < left.length || j < right.length) {
         if (left[i] === undefined) {
+            // We can insert the whole left thing
             mergedArray.push(right[j]);
             j++;
         } else if (right[j]  === undefined) {
+            // We can insert the whole left thing
             mergedArray.push(left[i]);
             i++;
         } else if (left[i] < right[j]) {

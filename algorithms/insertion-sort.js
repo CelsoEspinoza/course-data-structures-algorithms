@@ -16,6 +16,7 @@ function insertionSort(values) {
         } else if (values[i] > values[i - 1]) {
             // do nothing
         } else {
+            // Iterate between(<0;i-1>) the left side of the i element
             for (let j = 1; j < i - 2; j++) {
                 if (values[i] < values[j]) {
                     // Do not forget to remove it before inserting... (It broke everything :P)

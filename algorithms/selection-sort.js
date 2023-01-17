@@ -1,5 +1,6 @@
 // [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0]
 
+// We'll never you it. Educational purposes
 function selectionSort(values) {
     if (!values || !Array.isArray(values)) {
         return 'Error';
