@@ -2,7 +2,7 @@
 // [1, 2, 4, 5, 6, 44, 63, 87, 99, 283]
 
 // Divede and conquer. 
-// Time complexity: Best => nlog(n) | Average => nlog(n) | Worst => n^2
+// Time complexity: Best => O(nlog(n)) | Average => O(nlog(n)) | Worst => O(n^2)
 // Space complexity: Worst => O(log(n))
 // It's better then MergeSort but if you don't pick a good pivot, then the worst case is n^2.
 // It has better space complexity thatn MergeSort
