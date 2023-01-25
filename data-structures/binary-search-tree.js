@@ -88,9 +88,60 @@ class BinarySearchTree {
         }
         list.push(currentNode.value);
 
-        return this.breadthFirstSearchR(queue, list);
+        return this.breadthFirstSearchRecursively(queue, list);
+    }
+
+    DFSInOrder() {
+        return traverseInOrder(this.root, []);
+    }
+
+    DFSPreOrder() {
+        return traversePreOrder(this.root, []);
+    }
+
+    DFSPostOrder() {
+        return traversePostOrder(this.root, []);
     }
 }
+
+function traverseInOrder(node, list) {
+    if (node.left) {
+        traverseInOrder(node.left, list);
+    }
+    list.push(node.value);
+    if (node.right) {
+        traverseInOrder(node.right, list);
+    }
+    return list;
+}
+
+function traversePreOrder(node, list) {
+    list.push(node.value);
+    if (node.left) {
+        traversePreOrder(node.left, list);
+    }
+    if (node.right) {
+        traversePreOrder(node.right, list);
+    }
+    return list;
+}
+
+function traversePostOrder(node, list) {
+    if (node.left) {
+        traversePostOrder(node.left, list);
+    }
+    if (node.right) {
+        traversePostOrder(node.right, list);
+    }
+    list.push(node.value);    
+    return list;
+}
+
+/*
+        27
+    14      52
+  5       50  59
+*/
 
 const myBinarySearchtree = new BinarySearchTree();
 myBinarySearchtree.insert(27);
@@ -103,5 +154,11 @@ myBinarySearchtree.insert(50);
 console.log(JSON.stringify(myBinarySearchtree));
 console.log(JSON.stringify(myBinarySearchtree.lookup(52)));
 // [ 27, 14, 52, 5, 50, 59 ]
-console.log(myBinarySearchtree.breadthFirstSearch());
-console.log(myBinarySearchtree.breadthFirstSearchRecursively([myBinarySearchtree.root], []));
+console.log('breadthFirstSearch', myBinarySearchtree.breadthFirstSearch());
+console.log('breadthFirstSearchRecursively', myBinarySearchtree.breadthFirstSearchRecursively([myBinarySearchtree.root], []));
+// [ 5, 14, 27, 50, 52, 59 ]
+console.log('DFSInOrder', myBinarySearchtree.DFSInOrder());
+// [ 27, 14, 5, 52, 50, 59 ]
+console.log('DFSPreOrder', myBinarySearchtree.DFSPreOrder());
+// [ 5, 14, 50, 59, 52, 27 ]
+console.log('DFSPostOrder', myBinarySearchtree.DFSPostOrder());
