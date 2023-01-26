@@ -1,0 +1,14 @@
+- Dijktra and Bellman-Ford are two algorithms that finds the SHORTEST PATH(similar to BFS,
+    but it takes the edge weigth into consideration. 
+    The arrows are the edges.
+
+
+// (0)----20---->(1)----6---->(3)
+//    \
+//     15---->(2)----3---->(4)
+
+
+- Bellman-Ford is better to find the shortest path since it can acommodate negative weigths.
+    Takes long time to run in terms of complexity. Worst case => O(n^2)
+
+- Dijktra is a little bit faster and efficienty. It can't accomodate negative weigths.

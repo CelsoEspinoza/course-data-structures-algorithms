@@ -1,9 +1,8 @@
-// Finds if the path exists. It takes less memory.
-// It is slower than BFS
+- Finds if the path exists. It takes less memory.
+- It is slower than BFS
 
-// It goes deep in the tree or graph.
+- It goes deep in the tree or graph.
 
-/*
 There are 3 ways to handle the depth first search
 - InOrder: in order as the same says
 - PreORder: Good if you want to re build the tree. 
@@ -17,5 +16,4 @@ There are 3 ways to handle the depth first search
 - PreOrder => [9, 4, 1, 6, 20, 15, 170]
 - PostOrder => [1, 6, 4, 15, 170, 20, 9]
 
-*/
 
