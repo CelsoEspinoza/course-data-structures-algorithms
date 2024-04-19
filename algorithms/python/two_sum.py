@@ -18,10 +18,10 @@ def bruteForce(numbers, sum):
     return False
 
 
-print(bruteForce(numbers, 9))
+# print(bruteForce(numbers, 9))
 
 # 2) Using O(n) algorithm
-numbers2 = [1,2,4,4]
+numbers2 = [1,8,4,4]
 
 def findTwoNumbers(numbers, sum):
     dict_comp = {}
@@ -34,5 +34,20 @@ def findTwoNumbers(numbers, sum):
     return False
 
 
-print(findTwoNumbers(numbers2, 8))
+# print(findTwoNumbers(numbers2, 9))
+# two sum
 
+numbers3 = [1,8,4,4]
+
+def findTwoNumbers(numbers, sum):
+    dict_comp = {}
+    for i, num in enumerate(numbers):
+        comple = sum-num
+        if (dict_comp.get(comple) != None):
+            return dict_comp.get(comple), i
+        else:
+            dict_comp[num] = i
+    return None, None
+
+
+print(findTwoNumbers(numbers3, 9))
