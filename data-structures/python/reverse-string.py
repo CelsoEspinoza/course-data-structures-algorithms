@@ -5,9 +5,9 @@ def reverse(str):
     return str[::-1]
 
 def reverse2(str):
-    reversedWord = []
-    for char in str:
-        reversedWord.insert(0, char)
+    reversedWord = ''
+    for i in range(len(str)):
+        reversedWord = str[i] + reversedWord
     return "".join(reversedWord)
 
 def reverse3(str):
