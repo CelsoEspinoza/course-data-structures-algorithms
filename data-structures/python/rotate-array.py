@@ -41,5 +41,25 @@ class Solution:
                 remaining = k - (i % k)
 
         print(nums)
+
 sol1 = Solution()
 sol1.rotate(a, k)
+
+class Solution2:
+    def rotate(self, nums: List[int], k: int) -> None:
+
+        k = k % len(nums)
+        if k < 1:
+            return nums
+
+        self.__rotateAll(nums, 0, len(nums)-1)
+        self.__rotateAll(nums, 0, k-1)
+        self.__rotateAll(nums, k, len(nums)-1)
+
+    def __rotateAll(self, nums: List[int], left: int, right: int) -> None:
+        while left < right:
+            nums[left], nums[right] = nums[right], nums[left]
+            left += 1
+            right -= 1
+
+Solution2().rotate([1,2,3,4,5], 3)
